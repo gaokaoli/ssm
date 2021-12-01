@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kk.dao.BookMapper">
+
+    <!--增加一个Book-->
+    <insert id="addBook" parameterType="com.kk.pojo.Books">
+        insert into books(bookName,bookCounts)
+        values (#{bookName}, #{bookCounts})
+    </insert>
+
+    <!--根据id删除一个Book-->
+    <delete id="deleteBookById" parameterType="int">
+        delete from books where bookID=#{bookID}
+    </delete>
+
+    <!--更新Book-->
+    <update id="updateBook" parameterType="com.kk.pojo.Books">
+        update books
+        set bookName = #{bookName},bookCounts = #{bookCounts}
+        where bookID = #{bookID}
+    </update>
+
+    <!--根据id查询,返回一个Book-->
+    <select id="queryBookById" resultType="com.kk.pojo.Books">
+        select * from books
+        where bookID = #{bookID}
+    </select>
+
+    <!--查询全部Book-->
+    <select id="queryAllBook" resultType="com.kk.pojo.Books">
+        select * from books
+    </select>
+
+<!--    搜索书籍模块-->
+    <select id="queryBookByName" resultType="com.kk.pojo.Books">
+        select * from books where bookName=#{bookName}
+    </select>
+
+</mapper>

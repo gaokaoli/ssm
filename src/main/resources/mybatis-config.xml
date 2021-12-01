@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--settings：控制mybatis全局行为-->
+    <settings>
+        <!--设置mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- sql mapper(sql映射文件)的位置-->
+    <mappers>
+        <!--一个mapper标签指定一个文件的位置。
+           从类路径开始的路径信息。  target/clasess(类路径)
+        -->
+        <mapper resource="com/kk/dao/BookMapper.xml"/>
+    </mappers>
+</configuration>
